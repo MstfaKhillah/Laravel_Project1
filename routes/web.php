@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 
 // Route::get('url', 'Action');
@@ -9,14 +10,16 @@ use Illuminate\Support\Facades\Route;
 // Route::patch('url', 'Action');
 // Route::delete('url', 'Action');
 
-Route::get('new', function() {
+Route::get('/new', [HomeController::class, 'new']);
+
+Route::get('nnew', function () {
     return 'Hello';
 });
 
-Route::get('/', function() {
+Route::get('/', function () {
     return 'Homepage';
 });
 
-Route::get('user/{name}/{age}/{username}', function($name, $age, $username) {
-    return 'User: ' .$name . ' | Age: ' .$age . ' | User Name: ' . $username;
-})-> whereAlpha('name')->whereNumber('age')->whereAlphaNumeric('username');
+Route::get('user/{name}/{age}/{username}', function ($name, $age, $username) {
+    return 'User: ' . $name . ' | Age: ' . $age . ' | User Name: ' . $username;
+})->whereAlpha('name')->whereNumber('age')->whereAlphaNumeric('username');
