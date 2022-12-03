@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SiteController;
 
 
 // Route::get('url', 'Action');
@@ -16,10 +17,14 @@ Route::get('nnew', function () {
     return 'Hello';
 });
 
-Route::get('/', function () {
-    return 'Homepage';
-});
+// Route::get('/', function () {
+//     return 'Homepage';
+// });
 
 Route::get('user/{name}/{age}/{username}', function ($name, $age, $username) {
     return 'User: ' . $name . ' | Age: ' . $age . ' | User Name: ' . $username;
 })->whereAlpha('name')->whereNumber('age')->whereAlphaNumeric('username');
+
+
+
+Route::get('/', [SiteController::class, 'home']);
