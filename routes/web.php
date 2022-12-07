@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\SiteController;
 
 
@@ -27,4 +28,12 @@ Route::get('user/{name}/{age}/{username}', function ($name, $age, $username) {
 
 
 
-Route::get('/', [SiteController::class, 'home']);
+// Route::get('/', [SiteController::class, 'home']);
+
+
+// First Normal Routes
+Route::get('/', [MainController::class, 'index'])->name('site.index');
+Route::get('/about', [MainController::class, 'about'])->name('site.about');
+Route::get('/team', [MainController::class, 'team'])->name('site.team');
+Route::get('/services', [MainController::class, 'services'])->name('site.services');
+Route::get('/contact', [MainController::class, 'contact'])->name('site.contact');
